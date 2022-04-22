@@ -1,0 +1,148 @@
+<div class="bg">
+    <form *ngIf="signUpForm" [formGroup]="signUpForm" (ngSubmit)="onSubmit()" class="form-group col-md-10 mx-auto p-3">
+        <div class="container">
+            <h3 class="m-3 mt-4">Dati Utente</h3>
+            <div class="row justify-content-start">
+                <div class="mb-3 col-md-4">
+                    <label for="nomeContatto" class="form-label">Nome Contatto</label>
+                    <input type="text" class="form-control " name="nomeContatto" formControlName="nomeContatto" id="nomeContatto">
+                </div>
+                <div class="mb-3 col-md-4">
+                    <label for="cognomeContatto" class="form-label">Cognome Contatto</label>
+                    <input type="text" class="form-control " name="cognomeContatto" formControlName="cognomeContatto" id="cognomeContatto">
+                </div>
+                <div class="mb-3 col-md-4">
+                    <label for="ragioneSociale" class="form-label">Ragione Sociale</label>
+                    <input type="text" class="form-control " name="ragioneSociale" formControlName="ragioneSociale" id="ragioneSociale">
+                </div>
+            </div>
+            <div class="row justify-content-start">
+                <div class="mb-3 col-md-4">
+                    <label for="partitaIva" class="form-label">Partita Iva</label>
+                    <input type="number" class="form-control " name="partitaIva" formControlName="partitaIva" id="partitaIva">
+                </div>
+                <div class="mb-3 col-md-4">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control " name="email" formControlName="email" id="email">
+                </div>
+                <div class="mb-3 col-md-4">
+                    <label for="pec" class="form-label">Pec</label>
+                    <input type="email" class="form-control " name="pec" formControlName="pec" id="pec">
+                </div>
+            </div>
+            <div class="row justify-content-start">
+                <div class="mb-3 col-md-6">
+                    <label for="telefonoContatto" class="form-label">Telefono Contatto</label>
+                    <input type="tel" class="form-control " name="telefonoContatto" formControlName="telefonoContatto" id="telefonoContatto">
+                </div>
+                <div class="mb-3 col-md-6">
+                    <label for="emailContatto" class="form-label">Email Contatto</label>
+                    <input type="email" class="form-control " name="emailContatto" formControlName="emailContatto" id="emailContatto">
+                </div>
+            </div>
+            <div class="row justify-content-start">
+                <div class="mb-3 col-md-6">
+                    <label for="telefono" class="form-label">Telefono</label>
+                    <input type="tel" class="form-control " name="telefono" formControlName="telefono" id="telefono">
+                </div>
+                <div class="mb-3 col-md-6">
+                    <label for="tipoCliente" class="form-label">Tipo Cliente</label>
+                    <input type="text" class="form-control " name="tipoCliente" formControlName="tipoCliente" id="tipoCliente">
+                </div>
+            </div>
+        </div>
+
+        <div [formGroup]="formSo">
+            <div class="container">
+                <h3 class="m-3 mt-4">Sede Operativa</h3>
+                <div class="row justify-content-start">
+                    <div class="mb-3 col-md-6">
+                        <label for="via" class="form-label">Via</label>
+                        <input type="text" class="form-control " name="via" formControlName="via" id="via">
+                    </div>
+                    <div class="mb-3 col-md-6">
+                        <label for="civico" class="form-label">Civico</label>
+                        <input type="text" class="form-control " name="civico" formControlName="civico" id="civico">
+                    </div>
+                </div>
+                <div class="row justify-content-start">
+                    <div class="mb-3 col-md-4">
+                        <label for="cap" class="form-label">Cap</label>
+                        <input type="number" class="form-control " name="cap" formControlName="cap" id="cap">
+                    </div>
+                    <div class="mb-3 col-md-4">
+                        <label for="localita" class="form-label">Località</label>
+                        <input type="text" class="form-control " name="localita" formControlName="localita" id="localita">
+                    </div>
+
+                    <div [formGroup]="comuneSo" class="col-md-4">
+                        <div class="mb-3">
+                            <label for="nomeComune" class="form-label">Comune</label>
+                            <input type="text" class="form-control " name="nomeComune" formControlName="nomeComune" id="nomeComune">
+                        </div>
+                    </div>
+                </div>
+                <div [formGroup]="provinciaSo">
+                    <div class="row justify-content-start">
+                        <div class="mb-3 col-md-6">
+                            <label for="nomeProvincia" class="form-label">Provincia</label>
+                            <input type="text" class="form-control " name="nomeProvincia" formControlName="nomeProvincia" id="nomeProvincia">
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label for="siglaProvincia" class="form-label">Sigla Provincia</label>
+                            <input type="text" class="form-control " name="siglaProvincia" formControlName="siglaProvincia" id="siglaProvincia">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div [formGroup]="formSl">
+                <div class="row justify-content-start">
+                    <h3 class="m-3 mt-4">Sede Legale</h3>
+                    <div class="mb-3 col-md-6">
+                        <label for="viaSl" class="form-label">Via</label>
+                        <input type="text" class="form-control " name="viaSl" formControlName="viaSl" id="viaSl">
+                    </div>
+                    <div class="mb-3 col-md-6">
+                        <label for="civicoSl" class="form-label">Civico</label>
+                        <input type="text" class="form-control " name="civicoSl" formControlName="civicoSl" id="civicoSl">
+                    </div>
+                </div>
+                <div class="row justify-content-start">
+                    <div class="mb-3 col-md-4">
+                        <label for="capSl" class="form-label">Cap</label>
+                        <input type="number" class="form-control " name="capSl" formControlName="capSl" id="capSl">
+                    </div>
+                    <div class="mb-3 col-md-4">
+                        <label for="localitaSl" class="form-label">Località</label>
+                        <input type="text" class="form-control " name="localitaSl" formControlName="localitaSl" id="localitaSl">
+                    </div>
+                    <div [formGroup]="comuneSl" class="col-md-4">
+                        <div class="mb-3">
+                            <label for="nomeComuneSl" class="form-label">Comune</label>
+                            <input type="text" class="form-control " name="nomeComuneSl" formControlName="nomeComuneSl" id="nomeComuneSl">
+                        </div>
+                    </div>
+                </div>
+                <div [formGroup]="provinciaSl">
+                    <div class="row justify-content-start">
+                        <div class="mb-3 col-md-6">
+                            <label for="nomeProvinciaSl" class="form-label">Provincia</label>
+                            <input type="text" class="form-control " name="nomeProvinciaSl" formControlName="nomeProvinciaSl" id="nomeProvinciaSl">
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label for="nomeProvinciaSl" class="form-label">Sigla Provincia</label>
+                            <input type="text" class="form-control " name="nomeProvinciaSl" formControlName="siglaProvinciaSl" id="nomeProvinciaSl">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary mb-3 mt-4" [disabled]="!signUpForm.valid  || !formSo.valid || !comuneSo.valid || !provinciaSo.valid || !formSl.valid || !comuneSl.valid || !provinciaSl.valid">{{isAddMode ? 'Aggiungi' : 'Modifica'}}</button>
+        </div>
+    </form>
+
+</div>

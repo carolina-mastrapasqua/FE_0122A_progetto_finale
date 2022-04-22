@@ -1,0 +1,39 @@
+<div class="d-flex justify-content-center position">
+    <div class="spinner-border text-primary size" role="status" *ngIf="isLoading">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+</div>
+
+<div *ngIf="!isLoading">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Data</th>
+                <th scope="col">Numero</th>
+                <th scope="col">Anno</th>
+                <th scope="col">Importo</th>
+                <th scope="col">Stato</th>
+                <th scope="col">Cliente</th>
+                <button class="btn bg-success text-white" routerLink="/add-invoice" routerLinkActive="active">Nuovo</button>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let invoice of invoices">
+                <th scope="row">{{invoice.id}}</th>
+                <td>{{invoice.data}}</td>
+                <td>{{invoice.numero}}</td>
+                <td>{{invoice.anno}}</td>
+                <td>{{invoice.importo}}</td>
+                <td>{{invoice.stato.nome}}</td>
+                <td>{{invoice.cliente.ragioneSociale}}</td>
+                <button class="btn bg-warning text-dark m-2" (click)="goToInvoice(invoice.id)">Modifica</button>
+                <button class="btn bg-danger text-white m-2" (click)="deleteInvoice(invoice.id)">Elimina</button>
+            </tr>
+        </tbody>
+    </table>
+    <div *ngIf="totElements == 0">
+        <p class="text-center mt-2">Non ci sono elementi da visualizzare</p>
+    </div>
+    <app-pagination *ngIf="totElements != 0" [itemsForPage]="sizePages" [totalLength]="totElements" [currentPageIndex]="currentPage" (currentPageEvent)="getCurrentPage($event)"></app-pagination>
+</div>

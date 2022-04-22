@@ -1,0 +1,34 @@
+<div class="d-flex justify-content-center position">
+    <div class="spinner-border text-primary size" role="status" *ngIf="isLoading">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+</div>
+
+<div *ngIf="!isLoading">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Ragione Sociale</th>
+                <th scope="col">Email</th>
+                <th scope="col">Partita Iva</th>
+                <button class="btn bg-success text-white" routerLink="/add-client" routerLinkActive="active">Nuovo</button>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let client of clients">
+                <th scope="row">{{client.id}}</th>
+                <td>{{client.ragioneSociale}}</td>
+                <td>{{client.email}}</td>
+                <td>{{client.partitaIva}}</td>
+                <button class="btn bg-info text-dark m-2" (click)="goToInvoicesClient(client.id)">Fatture</button>
+                <button class="btn bg-warning text-dark m-2" (click)="goToClient(client.id)">Modifica</button>
+                <button class="btn bg-danger text-white m-2" (click)="deleteClient(client.id)">Elimina</button>
+            </tr>
+        </tbody>
+    </table>
+    <div *ngIf="totElements == 0">
+        <p class="text-center mt-2">Non ci sono elementi da visualizzare</p>
+    </div>
+    <app-pagination *ngIf="totElements != 0" [itemsForPage]="sizePages" [totalLength]="totElements" [currentPageIndex]="currentPage" (currentPageEvent)="getCurrentPage($event)"></app-pagination>
+</div>

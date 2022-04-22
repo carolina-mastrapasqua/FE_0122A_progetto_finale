@@ -1,0 +1,8 @@
+<div class="toasters-area">
+    <app-toaster [@inOut]="'inRightToLeft'" [toaster]="toaster" (onCloseEvent)="closeToaster(toaster)" (click)="closeToaster(toaster)" *ngFor="let toaster of toasters$ | async"></app-toaster>
+</div>
+
+<app-navbar></app-navbar>
+<div class="page-container">
+    <router-outlet></router-outlet>
+</div>

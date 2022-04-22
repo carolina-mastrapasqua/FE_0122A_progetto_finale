@@ -1,0 +1,14 @@
+<div aria-label="Page navigation example" class="d-flex justify-content-end">
+    <ul class="pagination">
+        <li class="page-item">
+            <button [disabled]="currentPageIndex == 0" id="previous" class="bg-primary text-white fs-4" (click)="previousPage()" aria-label="Previous">&laquo;</button>
+        </li>
+        <li class="page-item" *ngFor="let page of pagesArray, index as i" (click)="goToPage(i)">
+            <ng-template #elseBlock><a class="page-link text-danger">{{page}}</a></ng-template>
+            <a class="page-link" *ngIf="currentPageIndex != i; else elseBlock">{{page}}</a>
+        </li>
+        <li class="page-item">
+            <button id="next" class="bg-primary text-white fs-4" [disabled]="currentPageIndex == pagesArray.length - 1" (click)="nextPage()" aria-label="Next">&raquo;</button>
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,126 @@
+.toaster {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    min-width: 240px;
+    max-width: 500px;
+    width: 240px;
+    padding: 5px 20px 5px;
+    /* position: absolute;
+  right: 20px;*/
+    background: green;
+    border: 1px solid lightgreen;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+    color: white;
+    height: 100px;
+    max-height: 100px;
+    /*  top: 20px;*/
+    z-index: 500;
+    transition: width 2s, max-width 2s;
+    &:hover {
+        width: fit-content;
+        max-width: unset;
+    }
+    &.toaster-info {
+        // .toaster-message, .toaster-title div{
+        // color: white !important;
+        // }
+        background: lightblue;
+        border: 1px solid darken(lightblue, 20%);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+        transition: background .3s ease;
+        &:hover {
+            background: darken(lightblue, 20%);
+        }
+    }
+    &.toaster-success {
+        .toaster-message,
+        .toaster-title div {
+            color: white !important;
+        }
+        background: green;
+        border: 1px solid lightgreen;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+        transition: background .3s ease;
+        &:hover {
+            background: lighten(green, 5%);
+        }
+    }
+    &.toaster-warning {
+        // .toaster-message, .toaster-title div{
+        // color: white !important;
+        // }
+        background: orange;
+        border: 1px solid darkorange;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+        transition: background .3s ease;
+        &:hover {
+            background: lighten(orange, 20%);
+        }
+    }
+    &.toaster-error {
+        .toaster-message,
+        .toaster-title div {
+            color: white !important;
+        }
+        background: red;
+        border: 1px solid darkred;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+        transition: background .3s ease;
+        &:hover {
+            background: lighten(red, 20%);
+        }
+    }
+    /*  .handle-heights(7);*/
+    /*
+  .handle-heights(@n, @i: 0) when (@i =< @n) {
+    &.toaster-@{i} {
+      top: (20px + 100px*@i);
+      transition: top .4s ease;
+    }
+    .handle-heights(@n, (@i + 1));
+  }
+  */
+    .toaster-title {
+        display: block;
+        font-weight: bolder;
+        font-variant: petite-caps;
+    }
+    .toaster-message {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .toaster-icon {
+        margin-right: 15px;
+    }
+}
+
+@media (max-width: 600px) {
+    .toaster {
+        width: calc(100vw - 5px) !important;
+        padding: 5px 10px 5px;
+        right: -17px !important;
+        top: 0 !important;
+        height: 50px;
+        max-height: 50px;
+        z-index: 95;
+        &:hover {
+            width: calc(100vw - 5px) !important;
+            max-width: unset;
+        }
+        /*    .handle-heights(7);*/
+        /*   .handle-heights(@n, @i: 0) when (@i =< @n) {
+      &.toaster-@{i} {
+        top: (0px + 65px*@i) !important;
+        right: -17px !important;
+        transition: top .4s ease;
+      }
+      .handle-heights(@n, (@i + 1));
+    }*/
+    }
+}

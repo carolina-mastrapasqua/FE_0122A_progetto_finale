@@ -1,0 +1,27 @@
+
+
+@import "~bootstrap/dist/css/bootstrap.css";
+body {
+    overflow-y: hidden;
+}
+
+.bg {
+    height: 100%;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.position {
+    position: absolute;
+    right: 50vw;
+    top: 50vh
+}
+
+.spinner-border {
+    width: 3rem;
+    height: 3rem
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

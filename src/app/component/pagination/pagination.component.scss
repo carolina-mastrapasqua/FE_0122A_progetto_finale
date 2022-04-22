@@ -1,0 +1,21 @@
+button {
+    border: none;
+    width: 38px;
+    height: 38px;
+}
+
+#previous {
+    border-radius: 2px 0 0 2px;
+}
+
+#next {
+    border-radius: 0 2px 2px 0;
+}
+
+span {
+    font-size: 20px;
+}
+
+a {
+    cursor: pointer;
+}

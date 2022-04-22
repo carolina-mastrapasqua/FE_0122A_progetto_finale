@@ -1,0 +1,16 @@
+<div class="toaster toaster-{{toaster.type}} toaster-{{toaster.index}}">
+  <div class="toaster-title">
+    <div class="toaster-icon">
+      <i class="{{toaster.icon}}" *ngIf="toaster.icon"></i>
+      <i class="{{icon}}" *ngIf="icon"></i>
+    </div>
+    <div>
+      {{toaster.title}}
+    </div>
+  </div>
+  <div class="toaster-message">
+    {{toaster.message}}
+  </div>
+</div>
+
+

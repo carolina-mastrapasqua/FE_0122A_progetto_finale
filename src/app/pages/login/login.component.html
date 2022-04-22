@@ -1,0 +1,24 @@
+<div class="bg">
+    <form [formGroup]="loginForm" class="form-group col-3 mx-auto p-3" (ngSubmit)="login()">
+        <div class="mb-3 ">
+            <label for="username" class="form-label">Username</label>
+            <input formControlName="username" type="text" class="form-control" name="username" id="username">
+        </div>
+        <div class="mb-3 mt-3 text-danger" *ngIf="loginForm.controls['username'].errors && loginForm.controls['username'].touched">
+            Il campo Username è obbligatorio!
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input formControlName="password" type="password" class="form-control" name="password" id="password">
+        </div>
+        <div class="mb-3 mt-3 text-danger" *ngIf="loginForm.controls['password'].errors && loginForm.controls['password'].touched">
+            Il campo Password è obbligatorio!
+        </div>
+        <div class="mb-3 mt-3 text-danger" *ngIf="loginError">
+            Credenziali non valide!
+        </div>
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">Login</button>
+        </div>
+    </form>
+</div>

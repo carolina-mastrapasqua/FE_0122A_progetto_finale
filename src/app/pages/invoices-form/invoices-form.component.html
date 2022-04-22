@@ -1,0 +1,42 @@
+<div class="bg">
+    <form *ngIf="invoiceForm" [formGroup]="invoiceForm" (ngSubmit)="onSubmit()" class="form-group col-2 mx-auto">
+        <h4 class="m-3 mt-4">{{isAddMode ? 'Fattura' : 'Fattura n.' + invoiceId}}</h4>
+        <div class="mb-3">
+            <label for="data" class="form-label">Data</label>
+            <input type="text" class="form-control " name="data" formControlName="data" id="data">
+        </div>
+        <div class="mb-3">
+            <label for="numero" class="form-label">Numero</label>
+            <input type="text" class="form-control " name="numero" formControlName="numero" id="numero">
+        </div>
+        <div class="mb-3 mt-3">
+            <label for="anno" class="form-label">Anno</label>
+            <input type="text" class="form-control " name="anno" formControlName="anno" id="anno">
+        </div>
+        <div class="mb-3">
+            <label for="importo" class="form-label">Importo</label>
+            <input type="number" class="form-control " name="importo" formControlName="importo" id="importo">
+        </div>
+
+        <div [formGroup]="statoInvoice">
+            <h4 class="m-3 mt-4">Stato</h4>
+            <div class="mb-3">
+                <label for="nome" class="form-label">Nome</label>
+                <input type="text" class="form-control " name="nome" formControlName="nome" id="nome">
+            </div>
+        </div>
+
+        <div [formGroup]="clienteForm">
+            <h4 class="m-3 mt-4">Cliente</h4>
+            <div class="mb-3">
+                <label for="id" class="form-label">ID</label>
+                <input type="text" class="form-control " name="id" formControlName="id" id="id">
+            </div>
+        </div>
+
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary mb-3 mt-4" [disabled]="!invoiceForm.valid || !statoInvoice.valid || !clienteForm.valid">{{isAddMode ? 'Aggiungi' : 'Modifica'}}</button>
+        </div>
+
+    </form>
+</div>

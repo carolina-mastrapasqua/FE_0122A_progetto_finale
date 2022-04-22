@@ -1,0 +1,39 @@
+<div class="bg">
+    <form [formGroup]="signUpForm" class="form-group col-3 mx-auto p-3" (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+            <label for="username" class="form-label">Username</label>
+            <input type="text" class="form-control " name="username" formControlName="username" id="username">
+        </div>
+        <div class="mb-3 mt-3 text-danger" *ngIf="signUpForm.controls['username'].errors && signUpForm.controls['username'].touched">
+            Il campo Username è obbligatorio!
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control " name="email" formControlName="email" id="email">
+        </div>
+        <div class="mb-3 mt-3 text-danger" *ngIf="signUpForm.controls['email'].errors && signUpForm.controls['email'].touched">
+            Il campo Email è obbligatorio!
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control " name="password" formControlName="password" id="password">
+        </div>
+        <div class="mb-3 mt-3 text-danger" *ngIf="signUpForm.controls['password'].errors && signUpForm.controls['password'].touched">
+            Il campo Password è obbligatorio!
+        </div>
+        <div class="mb-3">
+            <label for="role" class="form-label">Role</label>
+            <select type="role" class="form-control " name="role" formControlName="role" id="role">
+        <option value=""></option>
+        <option value="user">user</option>
+        <option value="admin" >admin</option>
+      </select>
+        </div>
+        <div class="mb-3 mt-3 text-danger" *ngIf="signUpForm.controls['role'].errors && signUpForm.controls['role'].touched">
+            Seleziona un ruolo!
+        </div>
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary" [disabled]="!signUpForm.valid">Sign-up</button>
+        </div>
+    </form>
+</div>

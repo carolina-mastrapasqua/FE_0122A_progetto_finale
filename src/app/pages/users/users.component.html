@@ -1,0 +1,27 @@
+<div class="d-flex justify-content-center position">
+    <div class="spinner-border text-primary size" role="status" *ngIf="isLoading">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+</div>
+
+<div *ngIf="!isLoading">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Username</th>
+                <th scope="col">Email</th>
+                <th scope="col">Roles</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of users">
+                <th scope="row">{{user.id}}</th>
+                <td>{{user.username}}</td>
+                <td>{{user.email}}</td>
+                <td><span *ngFor="let role of user.roles"> {{role.roleName}}</span></td>
+            </tr>
+        </tbody>
+    </table>
+    <app-pagination [itemsForPage]="sizePages" [totalLength]="totElements" [currentPageIndex]="currentPage" (currentPageEvent)="getCurrentPage($event)"></app-pagination>
+</div>
